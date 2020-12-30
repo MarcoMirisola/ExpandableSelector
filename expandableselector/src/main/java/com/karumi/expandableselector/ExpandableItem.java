@@ -16,6 +16,8 @@
 
 package com.karumi.expandableselector;
 
+import android.content.res.ColorStateList;
+
 /**
  * Contains all the information needed to render a expandable item inside a ExpandableSelector
  * widget. The information you can render is a Drawable identifier, a String used as title and a
@@ -28,22 +30,28 @@ public class ExpandableItem {
   private int resourceId = NO_ID;
   private final int backgroundId;
   private final String title;
+  private final ColorStateList tint;
 
   public ExpandableItem() {
-    this(NO_ID, null);
+    this(NO_ID, null, null);
   }
 
   public ExpandableItem(int backgroundId) {
-    this(backgroundId, null);
+    this(backgroundId, null, null);
   }
 
   public ExpandableItem(String title) {
-    this(NO_ID, title);
+    this(NO_ID, title, null);
   }
 
-  private ExpandableItem(int backgroundId, String title) {
+  public ExpandableItem(ColorStateList tint) {
+    this(NO_ID, null, tint);
+  }
+
+  private ExpandableItem(int backgroundId, String title, ColorStateList tint) {
     this.backgroundId = backgroundId;
     this.title = title;
+    this.tint = tint;
   }
 
   public int getBackgroundId() {
@@ -62,6 +70,10 @@ public class ExpandableItem {
     return resourceId;
   }
 
+  public ColorStateList getBackgroundTint() {
+    return tint;
+  }
+
   public boolean hasResourceId() {
     return resourceId != NO_ID;
   }
@@ -72,5 +84,9 @@ public class ExpandableItem {
 
   public boolean hasTitle() {
     return title != null;
+  }
+
+  public boolean hasBackgroundTint() {
+    return tint != null;
   }
 }

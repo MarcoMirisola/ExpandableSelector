@@ -18,6 +18,7 @@ package com.karumi.expandableselector;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -306,6 +307,12 @@ public class ExpandableSelector extends FrameLayout {
       ImageButton imageButton = (ImageButton) button;
       int resourceId = expandableItem.getResourceId();
       imageButton.setImageResource(resourceId);
+    }
+    if (expandableItem.hasBackgroundTint()) {
+      ColorStateList backgroundTint = expandableItem.getBackgroundTint();
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        button.setBackgroundTintList(backgroundTint);
+      }
     }
   }
 

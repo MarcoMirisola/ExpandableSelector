@@ -16,6 +16,7 @@
 
 package com.karumi.expandableselector.sample;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -117,13 +118,13 @@ public class MainActivity extends ActionBarActivity {
   private void initializeIconsExpandableSelector() {
     iconsExpandableSelector = (ExpandableSelector) findViewById(R.id.es_icons);
     List<ExpandableItem> expandableItems = new ArrayList<ExpandableItem>();
-    ExpandableItem item = new ExpandableItem();
+    ExpandableItem item = new ExpandableItem(ColorStateList.valueOf(-16040805));
     item.setResourceId(R.mipmap.ic_keyboard_arrow_up_black);
     expandableItems.add(item);
     item = new ExpandableItem();
     item.setResourceId(R.mipmap.ic_gamepad_black);
     expandableItems.add(item);
-    item = new ExpandableItem();
+    item = new ExpandableItem(ColorStateList.valueOf(-542464));
     item.setResourceId(R.mipmap.ic_device_hub_black);
     expandableItems.add(item);
     iconsExpandableSelector.showExpandableItems(expandableItems);
