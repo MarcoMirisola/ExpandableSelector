@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 22
+  compileSdkVersion 29
   buildToolsVersion "22.0.1"
 
   defaultConfig {
     applicationId "com.karumi.expandableselector"
     minSdkVersion 14
-    targetSdkVersion 22
+    //noinspection OldTargetApi
+    targetSdkVersion 29
   }
 }
 
